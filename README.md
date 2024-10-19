@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: microsoft/setup-msbuild@v1.1
-      - uses: actions/setup-masm@v1
+      - uses: glslang/setup-masm@v1
         with:
           vs-version: '2022'
           vs-prerelease: 'true'
