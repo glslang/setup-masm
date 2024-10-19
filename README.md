@@ -64,4 +64,4 @@ For any inquiries, please contact the maintainers of this repository.
 
 ## Credits
 
-This project was based on [actions/setup-msbuild](https://github.com/actions/setup-msbuild) and [microsoft/setup-msbuild](https://github.com/microsoft/setup-msbuild).
+This project was based on [microsoft/setup-msbuild](https://github.com/microsoft/setup-msbuild). Cursor AI was used to generate code and documentation.
