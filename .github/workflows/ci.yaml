@@ -25,15 +25,10 @@ jobs:
       - uses: ./
       - name: Check MASM Path
         run: |
-          if (Test-Path env:masmPath) {
-            Write-Output "MASM path is set to: $env:masmPath"
-            if (Test-Path "$env:masmPath\ml64.exe") {
-              Write-Output "ml64.exe found at the specified path."
-            } else {
-              Write-Error "ml64.exe not found at the specified path."
-              exit 1
-            }
+          $ml64Path = Get-Command ml64.exe -ErrorAction SilentlyContinue
+          if ($ml64Path) {
+            Write-Output "ml64.exe found in PATH: $($ml64Path.Source)"
           } else {
-            Write-Error "MASM path environment variable is not set."
+            Write-Error "ml64.exe not found in PATH."
             exit 1
           }
