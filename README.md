@@ -1,6 +1,6 @@
 # setup-masm ![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg)
 
-A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH for building Win32 applications.
+A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH for building x64 assembly language in Win32 applications.
 
 ## Description
 
