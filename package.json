@@ -1,7 +1,7 @@
 {
   "name": "setup-masm",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "lib/main.js",
   "private": true,
   "description": "Helps set up specific MASM tool into PATH for later usage.",
   "scripts": {

@@ -15,7 +15,7 @@ inputs:
     description: "Enable searching for pre-release versions of Visual Studio/MSBuild"
     required: false
 outputs:
-  msbuildPath:
+  masmPath:
     description: "The resulting location of ml64 for your inputs"
 
 runs:
