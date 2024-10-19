@@ -1,0 +1,23 @@
+name: "setup-masm"
+description: "Helps set up MASM into PATH for later usage."
+author: "Gonçalo Carvalho"
+branding:
+  color: red
+  icon: terminal
+inputs:
+  vswhere-path:
+    required: false
+    description: "Folder location of where vswhere.exe is located if a self-hosted agent"
+  vs-version:
+    description: "Version of Visual Studio to search; defaults to latest if not specified"
+    required: false
+  vs-prerelease:
+    description: "Enable searching for pre-release versions of Visual Studio/MSBuild"
+    required: false
+outputs:
+  msbuildPath:
+    description: "The resulting location of ml64 for your inputs"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

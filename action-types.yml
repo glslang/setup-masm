@@ -1,0 +1,12 @@
+# See https://github.com/krzema12/github-actions-typing
+inputs:
+  vswhere-path:
+    type: string
+  vs-version:
+    type: string
+  vs-prerelease:
+    type: boolean
+
+outputs:
+  masmPath:
+    type: string
