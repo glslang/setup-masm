@@ -26,6 +26,10 @@ Add the following step to your workflow:
 
 - `masmPath`: The path to the MASM executable.
 
+## PATH environment variable
+
+The MASM path is added to the PATH environment variable.
+
 ## Example Workflow
 
 ```yaml
@@ -45,7 +49,6 @@ jobs:
         with:
           vs-version: '2022'
           vs-prerelease: 'true'
-      - run: echo "MASM path: ${{ env.masmPath }}"
 ```
 
 This example demonstrates how to set up MASM in a Windows-based workflow, ensuring that the necessary tools are available for building and testing your project.
