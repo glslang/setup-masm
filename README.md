@@ -1,4 +1,4 @@
-# setup-masm ![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg) [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/glslang.setup-masm)](https://marketplace.visualstudio.com/items?itemName=glslang.setup-masm)
+# setup-masm [![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg)](https://github.com/glslang/setup-masm/actions) [![GitHub release](https://img.shields.io/github/v/release/glslang/setup-masm?logo=github)](https://github.com/marketplace/actions/setup-masm)
 
 A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH to use x64 assembly in Win32 applications.
 
