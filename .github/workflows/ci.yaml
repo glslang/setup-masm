@@ -17,18 +17,37 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
+        platform: [x86, x64]
         toolchain:
           - stable
     steps:
       - uses: actions/checkout@v4
-      - uses: microsoft/setup-msbuild@v1.1
+      - uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: ${{matrix.platform}}
       - uses: ./
-      - name: Check MASM Path
+        with:
+          vs-architecture: ${{matrix.platform}}
+      - name: Check MASM ${{matrix.platform}} Path
         run: |
-          $ml64Path = Get-Command ml64.exe -ErrorAction SilentlyContinue
-          if ($ml64Path) {
-            Write-Output "ml64.exe found in PATH: $($ml64Path.Source)"
+          if ("${{matrix.platform}}" -eq "x64") {
+            $ml64Path = Get-Command ml64.exe -ErrorAction SilentlyContinue
+            if ($ml64Path) {
+              Write-Output "ml64.exe found in PATH: $($ml64Path.Source)"
+            } else {
+              Write-Error "ml64.exe not found in PATH."
+              exit 1
+            }
+          } elseif ("${{matrix.platform}}" -eq "x86") {
+            $mlPath = Get-Command ml.exe -ErrorAction SilentlyContinue
+            if ($mlPath) {
+              Write-Output "ml.exe found in PATH: $($mlPath.Source)"
+            } else {
+              Write-Error "ml.exe not found in PATH."
+              exit 1
+            }
           } else {
-            Write-Error "ml64.exe not found in PATH."
+            Write-Error "Unknown platform ${{matrix.platform}} to get ml<XXX>.exe in PATH."
             exit 1
           }
+          

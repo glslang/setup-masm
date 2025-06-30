@@ -6,6 +6,12 @@ inputs:
     type: string
   vs-prerelease:
     type: boolean
+  vs-architecture:
+    type: enum
+    name: Architecture
+    allowed-values:
+    - x86
+    - x64
 
 outputs:
   masmPath:
