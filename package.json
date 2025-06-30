@@ -1,7 +1,7 @@
 {
   "name": "setup-masm",
-  "version": "1.0.0",
-  "main": "lib/main.js",
+  "version": "1.1.0",
+  "main": "dist/main.js",
   "private": true,
   "description": "Helps set up specific MASM tool into PATH for later usage.",
   "scripts": {
@@ -20,6 +20,7 @@
     "visual studio",
     "masm",
     "assembler",
+    "x86",
     "x64"
   ],
   "author": "Gonçalo Carvalho",

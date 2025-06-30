@@ -9,6 +9,7 @@ const IS_WINDOWS = process.platform === 'win32'
 const VS_VERSION = core.getInput('vs-version') || 'latest'
 const VSWHERE_PATH = core.getInput('vswhere-path')
 const ALLOW_PRERELEASE = core.getInput('vs-prerelease') || 'false'
+const VS_ARCHITECTURE = core.getInput('vs-architecture') || 'x64'
 
 // Use let for mutable variables
 let vswhereExec = '-products * -requires Microsoft.Component.MSBuild -property installationPath -latest '
@@ -77,9 +78,10 @@ async function run(): Promise<void> {
               .trim()
           )
 
+          const asmExeName = VS_ARCHITECTURE == 'x64' ? 'ml64.exe' : 'ml.exe'
           const toolPath = path.join(
             installationPath,
-            `VC\\Tools\\MSVC\\${vcToolsVersion}\\bin\\Hostx64\\x64\\ml64.exe`
+            `VC\\Tools\\MSVC\\${vcToolsVersion}\\bin\\Host${VS_ARCHITECTURE}\\${VS_ARCHITECTURE}\\${asmExeName}`
           )
           core.debug(`Checking for path: ${toolPath}`)
           if (fs.existsSync(toolPath)) {

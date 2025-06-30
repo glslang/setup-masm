@@ -1,6 +1,6 @@
 # setup-masm [![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg)](https://github.com/glslang/setup-masm/actions) [![GitHub release](https://img.shields.io/github/v/release/glslang/setup-masm?logo=github)](https://github.com/marketplace/actions/setup-masm)
 
-A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH to use x64 assembly in Win32 applications.
+A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH to use x86 or x64 assembly in Win32 applications.
 
 ## Description
 
@@ -16,8 +16,9 @@ Add the following step to your workflow:
 
 ## Inputs
 
-- `vs-version`: The version of Visual Studio to use. Defaults to 'latest'.
-- `vs-prerelease`: Whether to include prerelease versions of Visual Studio. Defaults to 'false'.
+- `vs-version`: The version of Visual Studio to use. Defaults to `'latest'`.
+- `vs-prerelease`: Whether to include prerelease versions of Visual Studio. Defaults to `'false'`.
+- `vs-architecture`: By default the action will use the x64 architecture for MASM, but it is possible to target the x86 versions instead. Valid input values are `'x64'` and `'x86'`. Note that the success of these will rely on the runner OS. Defaults to `'x64'`. 
 
 ## Outputs
 
@@ -41,11 +42,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: microsoft/setup-msbuild@v1.1
-      - uses: glslang/setup-masm@v1
+      - uses: microsoft/setup-msbuild@v2
+      - uses: glslang/setup-masm@v1.1
         with:
           vs-version: '2022'
           vs-prerelease: 'true'
+          vs-architecture: 'x86'
 ```
 
 This example demonstrates how to set up MASM in a Windows-based workflow, ensuring that the necessary tools are available for building and testing your project.

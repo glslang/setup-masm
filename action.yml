@@ -14,9 +14,13 @@ inputs:
   vs-prerelease:
     description: "Enable searching for pre-release versions of Visual Studio/MSBuild"
     required: false
+  vs-architecture:
+    description: "The preferred processor architecture of MASM. Can be either 'x86' or 'x64'. 'x64' is only available from Visual Studio version 17.0 and later."
+    required: false
+    default: "x64"
 outputs:
   masmPath:
-    description: "The resulting location of ml64 for your inputs"
+    description: "The resulting location of ml (x86) or ml64 (x64) for your inputs"
 
 runs:
   using: "node20"
