@@ -78,7 +78,12 @@ async function run(): Promise<void> {
               .trim()
           )
 
-          const asmExeName = VS_ARCHITECTURE == 'x64' ? 'ml64.exe' : 'ml.exe'
+          const asmExeName =
+            VS_ARCHITECTURE == 'x64'
+              ? 'ml64.exe'
+              : VS_ARCHITECTURE == 'arm64'
+                ? 'armasm64.exe'
+                : 'ml.exe';
           const toolPath = path.join(
             installationPath,
             `VC\\Tools\\MSVC\\${vcToolsVersion}\\bin\\Host${VS_ARCHITECTURE}\\${VS_ARCHITECTURE}\\${asmExeName}`

@@ -14,12 +14,19 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        platform: [x86, x64]
-        toolchain:
-          - stable
+        include:
+          - platform: x86
+            os: windows-latest
+            toolchain: stable
+          - platform: x64
+            os: windows-latest
+            toolchain: stable
+          - platform: arm64
+            os: windows-11-arm
+            toolchain: stable
     steps:
       - uses: actions/checkout@v4
       - uses: microsoft/setup-msbuild@v2
@@ -44,6 +51,14 @@ jobs:
               Write-Output "ml.exe found in PATH: $($mlPath.Source)"
             } else {
               Write-Error "ml.exe not found in PATH."
+              exit 1
+            }
+          } elseif ("${{matrix.platform}}" -eq "arm64") {
+            $mlPath = Get-Command armasm64.exe -ErrorAction SilentlyContinue
+            if ($mlPath) {
+              Write-Output "armasm64.exe found in PATH: $($mlPath.Source)"
+            } else {
+              Write-Error "armasm64.exe not found in PATH."
               exit 1
             }
           } else {
