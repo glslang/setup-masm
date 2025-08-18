@@ -12,6 +12,7 @@ inputs:
     allowed-values:
     - x86
     - x64
+    - arm64
 
 outputs:
   masmPath:
