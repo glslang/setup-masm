@@ -18,7 +18,7 @@ Add the following step to your workflow:
 
 - `vs-version`: The version of Visual Studio to use. Defaults to `'latest'`.
 - `vs-prerelease`: Whether to include prerelease versions of Visual Studio. Defaults to `'false'`.
-- `vs-architecture`: By default the action will use the x64 architecture for MASM, but it is possible to target the x86 versions instead. Valid input values are `'x64'` and `'x86'`. Note that the success of these will rely on the runner OS. Defaults to `'x64'`. 
+- `vs-architecture`: By default the action will use the x64 architecture for MASM, but it is possible to target the x86 or arm64 versions instead. Valid input values are `'x64'`, `'x86'` and `'arm64'`. Note that the success of these will rely on the runner OS. Defaults to `'x64'`. 
 
 ## Outputs
 
