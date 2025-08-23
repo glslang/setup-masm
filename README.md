@@ -11,7 +11,7 @@ This action helps set up MASM into the PATH for later usage in your GitHub Actio
 Add the following step to your workflow:
 
 ```yaml
-- uses: glslang/setup-masm@v1.1
+- uses: glslang/setup-masm@v1.2
 ```
 
 ## Inputs
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: microsoft/setup-msbuild@v2
-      - uses: glslang/setup-masm@v1.1
+      - uses: glslang/setup-masm@v1.2
         with:
           vs-version: '2022'
           vs-prerelease: 'true'
