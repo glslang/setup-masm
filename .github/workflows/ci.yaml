@@ -62,7 +62,7 @@ jobs:
               exit 1
             }
           } else {
-            Write-Error "Unknown platform ${{matrix.platform}} to get ml<XXX>.exe in PATH."
+            Write-Error "Unknown platform ${{matrix.platform}} - no assembler configured for testing in PATH."
             exit 1
           }
 
