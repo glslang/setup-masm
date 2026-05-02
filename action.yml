@@ -23,5 +23,5 @@ outputs:
     description: "The resulting location of ml (x86), ml64 (x64) or armasm64 (arm64) for your inputs"
 
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"
