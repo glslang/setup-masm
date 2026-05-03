@@ -1,9 +1,9 @@
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
+import type { ExecOptions } from '@actions/exec'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as io from '@actions/io'
-import { ExecOptions } from '@actions/exec/lib/interfaces'
 
 const IS_WINDOWS = process.platform === 'win32'
 const VS_VERSION = core.getInput('vs-version') || 'latest'

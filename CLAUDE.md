@@ -10,17 +10,17 @@ A GitHub Action that locates and adds MASM (Microsoft Macro Assembler) to the PA
 
 ```bash
 npm run build   # TypeScript compile only (tsc → dist/)
-npm run pack    # Bundle with ncc only
+npm run pack    # Bundle with esbuild only (dist/index.js)
 npm run all     # build + pack (use this before committing)
 ```
 
-**Always run `npm run all` before committing** — the action runs from `dist/index.js` (the ncc bundle), not the raw TypeScript output. The `dist/` directory is committed to the repo.
+**Always run `npm run all` before committing** — the action runs from `dist/index.js` (the esbuild bundle), not the raw TypeScript output. The `dist/` directory is committed to the repo.
 
 ## Architecture
 
 - `src/main.ts` — the entire action logic (single file). Reads inputs at module load time as top-level constants, then `run()` is called immediately.
-- `dist/index.js` — the ncc-bundled output that GitHub Actions executes (`runs.main` in `action.yml`).
-- `action.yml` — action metadata, inputs/outputs definition. Uses `node20` runtime.
+- `dist/index.js` — the esbuild-bundled CommonJS output that GitHub Actions executes (`runs.main` in `action.yml`). ESM bundles break on dynamic `require()` in dependencies such as `tunnel`.
+- `action.yml` — action metadata, inputs/outputs definition. Uses `node24` runtime.
 - `action-types.yml` — stricter type annotations for inputs (used by `krzema12/github-actions-typing`).
 
 ## Key implementation detail
