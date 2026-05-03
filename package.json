@@ -1,12 +1,12 @@
 {
   "name": "setup-masm",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "main": "dist/main.js",
   "private": true,
   "description": "Helps set up specific MASM tool into PATH for later usage.",
   "scripts": {
     "build": "tsc",
-    "pack": "ncc build",
+    "pack": "esbuild src/main.ts --bundle --platform=node --target=node24 --format=cjs --outfile=dist/index.js",
     "all": "npm run build && npm run pack"
   },
   "repository": {
@@ -21,18 +21,19 @@
     "masm",
     "assembler",
     "x86",
-    "x64"
+    "x64",
+    "arm64"
   ],
   "author": "Gonçalo Carvalho",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/exec": "^3.0.0",
-    "@actions/tool-cache": "^4.0.0"
+    "@actions/io": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
-    "@vercel/ncc": "^0.38.4",
+    "esbuild": "^0.28.0",
     "typescript": "^6.0.3"
   }
 }
