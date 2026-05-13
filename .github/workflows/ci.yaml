@@ -34,6 +34,12 @@ jobs:
       matrix:
         include:
           - platform: x86
+            os: windows-2022
+            toolchain: stable
+          - platform: x64
+            os: windows-2022
+            toolchain: stable
+          - platform: x86
             os: windows-2025-vs2026
             toolchain: stable
           - platform: x64
