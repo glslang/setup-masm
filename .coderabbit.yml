@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+early_access: false
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!dist/**"
+    - "!package-lock.json"
+  path_instructions:
+    - path: "src/**/*.ts"
+      instructions: >-
+        This is the source for a GitHub Action that adds MASM to the PATH on
+        Windows runners. The action is bundled to dist/index.js with esbuild;
+        flag any change to src that would require re-running `npm run all` if
+        dist/ was not regenerated. Watch for correctness of the constructed
+        tool path and for unhandled errors from vswhere or file reads.
+chat:
+  auto_reply: true

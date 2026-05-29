@@ -1,4 +1,4 @@
-# setup-masm [![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg)](https://github.com/glslang/setup-masm/actions) [![GitHub release](https://img.shields.io/github/v/release/glslang/setup-masm?logo=github)](https://github.com/marketplace/actions/setup-masm)
+# setup-masm [![Build Status](https://github.com/glslang/setup-masm/actions/workflows/ci.yaml/badge.svg)](https://github.com/glslang/setup-masm/actions) [![GitHub release](https://img.shields.io/github/v/release/glslang/setup-masm?logo=github)](https://github.com/marketplace/actions/setup-masm) [![CodeRabbit Reviews](https://img.shields.io/coderabbit/prs/github/glslang/setup-masm?utm_source=oss&utm_medium=github&utm_campaign=glslang%2Fsetup-masm&labelColor=171717&color=FF570A&label=CodeRabbit+Reviews)](https://coderabbit.ai)
 
 A GitHub Action to facilitate configuring MASM (Microsoft Macro Assembler) in the workflow PATH to use x64, x86 and ARM64 assembly in Win32 applications.
 
